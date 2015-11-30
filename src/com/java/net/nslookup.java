@@ -5,7 +5,7 @@ import java.net.InetAddress;
 import java.util.Scanner;
 
 public class nslookup {
-	public static void main(String args[]) throws Exception{
+	public static void main(String args[]){
 		
 		Scanner scan = new Scanner(System.in);
 				
@@ -15,11 +15,14 @@ public class nslookup {
 			if(hostName.equals("exit")){
 				break;
 			}
-			InetAddress[] address = InetAddress.getAllByName(hostName);
-			
-			for(InetAddress ad:address){
-				System.out.println(ad);
-			}			
+			try{
+				InetAddress[] address = InetAddress.getAllByName(hostName);
+				for(InetAddress ad:address){
+					System.out.println(ad);
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 	}
 }
