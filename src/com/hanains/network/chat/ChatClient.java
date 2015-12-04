@@ -46,7 +46,7 @@ public class ChatClient {
 				String line =br.readLine();
 				if("join:ok".equals(line))
 				{
-					new ChatClientReceiveThread(socket, br).start();
+					(new ChatClientReceiveThread(socket, br, nickname)).start();
 					break;
 				}
 			}
@@ -58,6 +58,8 @@ public class ChatClient {
 				if("quit".equals(input) == true){
 					pw.println("quit");
 					break;
+				}else if("to".equals(input) == true){
+					pw.println("to:"+input);
 				}else{
 					pw.println("message:"+input);					
 				}	

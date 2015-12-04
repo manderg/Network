@@ -87,7 +87,7 @@ public class ChatServerThread extends Thread {
 		this.nickname = nickname;
 		
 		String data = nickname + " 님이 참여하셨습니다.";
-		ChatServer.log(nickname+"님이 참여하셨습니다.");	
+		ChatServer.log(nickname+ " 님이 참여하셨습니다.");	
 		
 		broadcast(data+"\r\n");
 		
@@ -95,6 +95,10 @@ public class ChatServerThread extends Thread {
 		
 		pw.println("join:ok");
 		pw.flush();
+		
+	}
+	
+	private void whisperTo(String nickname, Writer writer){
 		
 	}
 
